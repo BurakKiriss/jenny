@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl5yt8un71lxw"]
+
+[ext_resource type="Texture2D" uid="uid://ctd3nu3jdhqi3" path="res://assets/Platform Projesi/assets/kapi.png" id="1_c3vqp"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_sl4tc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm4l4"]
+size = Vector2(20, 244)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0y46p"]
+
+[node name="gate" type="StaticBody2D"]
+position = Vector2(3, -95)
+script = ExtResource("1_sl4tc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_cm4l4")
+
+[node name="Kapi" type="Sprite2D" parent="."]
+position = Vector2(-1, 22)
+scale = Vector2(2.3125, 15.25)
+texture = ExtResource("1_c3vqp")
+
+[node name="gategatesound" type="Area2D" parent="."]
+position = Vector2(1, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gategatesound"]
+position = Vector2(-1, -106)
+shape = SubResource("CircleShape2D_0y46p")

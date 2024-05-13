@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4bytbjflctka"]
+
+[ext_resource type="AudioStream" uid="uid://3mtpvsiht72s" path="res://assets/brackeys_platformer_assets/assets/para.wav" id="1_ku5uv"]
+[ext_resource type="AudioStream" uid="uid://da1ili1cs5gw0" path="res://abc/bgmusic.mp3" id="2_u6wm8"]
+[ext_resource type="AudioStream" uid="uid://b8ytxv52qt3dk" path="res://abc/walk3.mp3" id="3_tpmh2"]
+[ext_resource type="AudioStream" uid="uid://by7qd55wcrate" path="res://abc/opendoor.mp3" id="4_n886u"]
+[ext_resource type="AudioStream" uid="uid://c7cohul8t1851" path="res://abc/opengate.mp3" id="5_w5ti2"]
+[ext_resource type="AudioStream" uid="uid://cprubrtscyl1j" path="res://abc/jump.wav" id="6_4ya2f"]
+[ext_resource type="AudioStream" uid="uid://cg0nnvshoq08a" path="res://abc/hurtjenny.mp3" id="7_au1iy"]
+
+[node name="sounds" type="Node2D"]
+
+[node name="coin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_ku5uv")
+
+[node name="bgmusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_u6wm8")
+autoplay = true
+
+[node name="walk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tpmh2")
+autoplay = true
+
+[node name="opendoor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_n886u")
+
+[node name="opengate" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_w5ti2")
+
+[node name="fire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_4ya2f")
+
+[node name="hurtjenny" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_au1iy")
+volume_db = -7.0

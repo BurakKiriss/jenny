@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxsb5j722m53k"]
+
+[ext_resource type="Texture2D" uid="uid://dpabpabbug86f" path="res://assets/brackeys_platformer_assets/assets/karakter.png" id="1_cjr7e"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_cn2db"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gm40"]
+size = Vector2(36, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3spjf"]
+size = Vector2(38, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oumsi"]
+size = Vector2(38, 33)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23c3c"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6lw7"]
+bg_color = Color(0.952941, 0, 0, 1)
+
+[node name="enemy" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(0.720002, 0.51543)
+collision_mask = 2
+script = ExtResource("1_cn2db")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.0196078, 0.964706, 1)
+scale = Vector2(3.85662, 3.32)
+texture = ExtResource("1_cjr7e")
+region_enabled = true
+region_rect = Rect2(35, 0, 10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.19209e-07, 4.17233e-07)
+shape = SubResource("RectangleShape2D_5gm40")
+
+[node name="damage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_3spjf")
+
+[node name="bulletBox" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bulletBox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_oumsi")
+
+[node name="canBari" type="ProgressBar" parent="."]
+offset_left = -15.2777
+offset_top = -29.1019
+offset_right = 13.7223
+offset_bottom = -21.1019
+theme_override_styles/background = SubResource("StyleBoxFlat_23c3c")
+theme_override_styles/fill = SubResource("StyleBoxFlat_m6lw7")
+max_value = 3.0
+step = 1.0
+value = 3.0
+show_percentage = false
+
+[connection signal="body_entered" from="bulletBox" to="." method="_on_bullet_box_body_entered"]

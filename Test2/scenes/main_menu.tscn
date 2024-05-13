@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://duefryf0cxa67"]
+
+[ext_resource type="Texture2D" uid="uid://dmjx1htemoo1u" path="res://assets/Jungle Asset Pack/parallax background/plx-1.png" id="1_0ym14"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_um1c7"]
+[ext_resource type="Texture2D" uid="uid://b0wdjy848ggpp" path="res://assets/Jungle Asset Pack/parallax background/plx-4.png" id="2_p4nqa"]
+
+[sub_resource type="SystemFont" id="SystemFont_mxlxm"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="SystemFont" id="SystemFont_lhwcb"]
+font_names = PackedStringArray("Impact")
+
+[node name="mainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_um1c7")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(3961, 5232)
+scale = Vector2(51.8385, 81.0787)
+texture = ExtResource("1_0ym14")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p4nqa")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="gameName" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = SubResource("SystemFont_mxlxm")
+theme_override_font_sizes/font_size = 64
+text = "JENNY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="startButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_lhwcb")
+theme_override_font_sizes/font_size = 24
+text = "START GAME
+"
+
+[node name="quitButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_lhwcb")
+theme_override_font_sizes/font_size = 24
+text = "QUIT GAME
+"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/quitButton" to="." method="_on_quit_button_pressed"]
